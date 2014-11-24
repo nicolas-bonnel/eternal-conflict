@@ -1,0 +1,20 @@
+<div layout="vertical">
+  <md-content>
+  
+    <md-toolbar>
+      <h2 class="md-toolbar-tools">
+        <span>Play eternal conflict !</span>
+      </h2>
+    </md-toolbar>
+    
+    <form style="padding: 20px;">
+      <div layout="horizontal">
+        <md-text-float label="Login" ng-model="account.login"></md-text-float>
+        <md-text-float label="Password" type="password" ng-model="account.password"></md-text-float>
+     	 <md-button ng-click="login();" style="height: 60px;padding: 10px;" class="md-primary">Login</md-button>
+         <md-button ng-click="createAccount();" style="height: 60px;padding: 10px;">Create Account</md-button>
+     </div>
+    </form>
+  </md-content>
+  <div style="height:600px;background-image: url(data/img/flare/Badlands.jpg);"></div>
+</div>

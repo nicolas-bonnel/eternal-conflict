@@ -1,0 +1,14 @@
+{
+  "name": "eternal-conflict",
+  "version": "0.0.1",
+  "dependencies": {
+    "three.js": "*",
+    "socket.io-client": "~1.1.0",
+    "jquery": "~2.1.1",
+    "angular": "~1.3.1",
+    "angular-route": "~1.3.1",
+    "angular-material": "#master",
+    "ocean": "git://github.com/jbouny/ocean.git",
+    "ces.js": "git://github.com/qiao/ces.js.git"
+  }
+}

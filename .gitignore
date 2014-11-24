@@ -1,0 +1,7 @@
+.project
+data
+bower_components
+node_modules
+db
+build
+tmp

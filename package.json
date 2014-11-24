@@ -1,0 +1,24 @@
+{
+  "name": "eternal-conflict",
+  "devDependencies": {
+    "gulp": "~3.8.8",
+    "gulp-connect": "~2.0.6",
+    "glob": "~4.0.6",
+    "gulp-angular-templatecache": "~1.4.2",
+    "gulp-concat": "~2.4.1",
+    "gulp-clean": "~0.3.1",
+    "gulp-nodemon": "~1.0.4",
+    "gulp-shell": "~0.2.10",
+    "gulp-usemin": "~0.3.8",
+    "event-stream": "~3.1.7"
+  },
+  "dependencies": {
+    "express": "~4.9.8",
+    "socket.io": "~1.1.0",
+    "node-uuid": "~1.4.1",
+    "body-parser": "~1.9.2",
+    "express-jwt": "~0.4.0",
+    "jsonwebtoken": "~1.1.2",
+    "mongodb": "~2.0"
+  }
+}

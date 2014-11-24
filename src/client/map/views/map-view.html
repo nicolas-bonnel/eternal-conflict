@@ -1,0 +1,74 @@
+<div layout="horizontal">
+	<div style="position: absolute;">
+		<md-text-float label="FPS" ng-model="stats.fps"></md-text-float>
+		<md-text-float label="Vertices" ng-model="stats.vertices"></md-text-float>
+		<md-text-float label="Faces" ng-model="stats.faces"></md-text-float>
+	</div>
+	<div id="view"></div>
+	
+	<script id="groundVertexShader" type="x-shader/x-fragment">
+		    varying vec2 vUv;
+		    varying vec3 vPosition;
+		    varying vec3 vNormal;
+		    void main( void ) {
+		        vUv = uv;
+		        vNormal = normal;
+		        vPosition = position;
+		        gl_Position = projectionMatrix * modelViewMatrix * vec4(vPosition, 1);
+		    }
+		</script>
+		<script id="groundFragmentShader" type="x-shader/x-vertex">
+		    uniform sampler2D grass;
+		    uniform sampler2D lightrock;
+		    uniform sampler2D greyrock;
+		    uniform sampler2D snow;
+		    uniform vec3 directionalLightDirection;
+		    varying vec2 vUv;
+		    varying vec3 vPosition;
+		    varying vec3 vNormal;
+		    void main() {
+		        // Texture loading
+		        vec4 diffuseGrass = texture2D( grass, mod(vUv * 32.0,1.0));
+		        vec4 diffuseLightrock = texture2D( lightrock,  mod(vUv * 64.0,1.0));
+		        vec4 diffuseGreyrock = texture2D( greyrock,  mod(vUv * 32.0,1.0));
+		        vec4 diffuseSnow = texture2D( snow,  mod(vUv * 32.0,1.0));
+		        vec4 color = diffuseGrass;
+		        if(vPosition.y > 50.0){
+		        	color = diffuseSnow;
+		        }else if (vPosition.y > 40.0){
+		        	color = mix(
+			            diffuseSnow,
+			            color,
+			            min(1.0,(50.0-vPosition.y)/10.0)
+			        );
+		        	
+		        }else if (vPosition.y < 2.0){
+		        	color = diffuseLightrock;
+		        	
+		        }else if (vPosition.y < 6.0){
+		        	color = mix(
+			            color,
+			            diffuseLightrock,
+			            min(1.0,(6.0-vPosition.y)/4.0)
+			        );
+		        	
+		        }
+		        
+		        if(vNormal.y < 0.90){
+		        	color = diffuseGreyrock;
+		        }else{
+		        	color = mix(
+			            diffuseGreyrock,
+			            color,
+			           	min(1.0,(vNormal.y - 0.9)*30.0)
+			        );
+		        }
+		        // light
+		        vec3 light = directionalLightDirection;
+  				light = normalize(directionalLightDirection);
+  				float dProd = max(0.0, dot(vNormal, light));
+		        vec4 addedLights = vec4(dProd,dProd,dProd, 1.0);
+		        gl_FragColor = color* addedLights;
+		    }
+		</script>
+</div>

@@ -1,0 +1,28 @@
+<div style="height:660px;background-image: url(data/img/flare/FireTemple.jpg);">
+	 <md-toolbar>
+      <h2 class="md-toolbar-tools">
+        <span>Create a new character</span>
+      </h2>
+    </md-toolbar>
+	
+	<md-content>
+		<div layout="horizontal" layout-align="center center">
+	        <md-button class="md-raised" aria-label="{{name}}" ng-repeat="(name,path) in icons" style="width: 110px;height: 110px;" ng-if="$even" ng-class="{'md-primary':character.icon==name}" ng-click="character.icon=name">
+	            <img ng-src="{{path}}" style="width: 100px; height: 100px;"/>
+	        </md-button>
+		</div>
+		<div layout="horizontal" layout-align="center center">
+	        <md-button class="md-raised" aria-label="{{name}}" ng-repeat="(name,path) in icons" style="width: 110px;height: 110px;" ng-if="$odd" ng-class="{'md-primary':character.icon==name}" ng-click="character.icon=name">
+	            <img ng-src="{{path}}" style="width: 100px; height: 100px;"/>
+	        </md-button>
+		</div>
+    </section>
+		<form style="padding: 20px;">
+			<div layout="horizontal">
+				<md-text-float label="name" ng-model="character.name"></md-text-float>
+				<md-button ng-click="create();" style="height: 60px;padding: 10px;" class="md-primary" ng-disabled="!character.name || !character.icon">Create</md-button>
+			</div>
+		</form>
+
+	</md-content>
+</div>

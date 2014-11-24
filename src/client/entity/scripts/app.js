@@ -1,0 +1,3 @@
+angular.module('entity',[
+	'models'
+]);

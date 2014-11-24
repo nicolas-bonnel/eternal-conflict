@@ -1,0 +1,33 @@
+<md-content>
+
+	<md-list layout="row" layout-align="center center">
+
+		<md-item ng-repeat="map in maps">
+			<md-item-content>
+				<a href="#/map/{{map._id}}">
+				<md-button style="width: 200px;height: 200px;padding: 10px;" class="md-raised">
+
+					<div class="md-tile-top">
+						<img ng-src="{{map.thumbnail}}">
+					</div>
+					<div class="md-tile-content">
+						<p>{{map.name}}</p>
+						<h4>Size  : {{map.size * map.scale}}</h4>
+					</div>
+				</md-button></a>
+			</md-item-content>
+		</md-item>
+
+		<md-item>
+			<md-item-content>
+				<a href="#/map/new">
+				<md-button style="width: 200px;height: 200px;padding: 10px;" class="md-primary">
+					New map
+				</md-button></a>
+
+			</md-item-content>
+		</md-item>
+
+	</md-list>
+
+</md-content>

@@ -1,0 +1,33 @@
+<div style="height:660px;background-image: url(data/img/flare/FireTemple.jpg);">
+	<md-content>
+		<md-list layout="horizontal">
+
+			<md-item ng-repeat="character in characters">
+				<md-button ng-click="play(character.name)" style="height: 200px;padding: 10px;">
+					<div>
+						<img ng-src="{{icons[character.icon]}}" alt="{{character.name}}">
+					</div>
+					<div class="md-tile-content">
+						<h3>{{character.name}}</h3>
+						<h4>{{character.class}}</h4>
+						<p>
+							Level {{character.level}}
+						</p>
+					</div>
+				</md-button>
+			</md-item>
+
+			<md-item>
+				<md-button ng-click="create()" style="height: 200px;padding: 10px;">
+					<div class="md-tile-left">
+						<img ng-src="{{character.face}}" alt="{{character.name}}">
+					</div>
+					<div class="md-tile-content">
+						<h4 class="md-primary">Create<br>a new<br>character</h4>
+					</div>
+				</md-button>
+			</md-item>
+		</md-list>
+
+	</md-content>
+</div>

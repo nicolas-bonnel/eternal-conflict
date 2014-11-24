@@ -1,0 +1,20 @@
+<div layout="row">
+	<map-view width="1024" height="768" map="map" thumbnail="map.thumbnail"></map-view>
+	<div layout="column">
+		<md-text-float ng-if="map.name" label="Name" ng-model="map.name"></md-text-float>
+		<md-button ng-if="!mapId" ng-click="create($event);" style="height: 60px;padding: 10px;" class="md-primary">
+			Create
+		</md-button>
+		<md-button ng-if="mapId" ng-click="save();" style="height: 60px;padding: 10px;" class="md-primary">
+			Save
+		</md-button>
+		<md-button ng-click="generate();" style="height: 60px;padding: 10px;" class="md-primary">
+			Generate
+		</md-button>
+		<md-text-float label="Size" ng-model="settings.size"></md-text-float>
+		<md-text-float label="Scale" ng-model="settings.scale"></md-text-float>
+		<md-text-float label="Moutains" ng-model="settings.mountains"></md-text-float>
+		<md-text-float label="Tree density" ng-model="settings.treeDensity"></md-text-float>
+		<md-text-float label="Num forests" ng-model="settings.numForest"></md-text-float>
+	</div>
+</div>

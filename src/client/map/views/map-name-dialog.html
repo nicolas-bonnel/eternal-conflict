@@ -1,0 +1,18 @@
+<md-dialog aria-label="Map name" md-theme="light-blue-dark">
+
+  <md-content>
+    <md-subheader class="md-sticky-no-effect">Choose a name for your map</md-subheader>
+    <input ng-model="mapName"/>
+    
+    <div layout="row">
+    <md-button ng-click="cancel()" style="height: 60px;padding: 10px;" >
+     Cancel
+    </md-button>
+    <md-button ng-click="answer(mapName)" class="md-primary" style="height: 60px;padding: 10px;" >
+      Save
+    </md-button>
+  </div>
+  </md-content>
+
+
+</md-dialog>
