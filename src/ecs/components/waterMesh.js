@@ -3,7 +3,7 @@ var waterMesh = {
     init: function (width,height,renderer, camera, scene, directionalLight) {
     	//water
 		// Load textures		
-		var waterNormals = new THREE.ImageUtils.loadTexture('data/waternormals.jpg');
+		var waterNormals = new THREE.ImageUtils.loadTexture('lib/bower_components/ocean/assets/img/waternormals.jpg');
 		waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping; 
 		// Create the water effect
 		this.ms = new THREE.Water(renderer, camera, scene, {

@@ -14,8 +14,12 @@ module.exports = function(app){
 		});
 	});
 	app.get('/lib/*',function(req,res){
-		fs.readFile(req.originalUrl.replace('/lib/',''),'utf-8',function(err,file){
-			res.type('application/javascript').send(file);
+		fs.readFile(req.originalUrl.replace('/lib/',''),function(err,file){
+			if(req.originalUrl.slice(-3)=='.js'){
+				res.type('application/javascript').send(file);
+			}else{
+				res.send(file);
+			}
 		});
 	});
 	
